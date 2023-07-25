@@ -36,7 +36,11 @@ const sleepButton = document.querySelector('#sleep-button');
 const cleanButton = document.querySelector('#clean-button');
 // Select the buttons and assign them to the respective variables
 
+
 let clickCounter = 0; // Variable to count the number of clicks on a button
+let feedCounter = 0; // Variable to count the number of clicks on the feed button
+let sleepCounter = 0; // Variable to count the number of clicks on the sleep button
+let cleanCounter = 0; // Variable to count the number of clicks on the clean button
 
 
 function decreaseAttribute(attribute) { // Function to decrease an attribute by 30 every 5 clicks
@@ -56,6 +60,10 @@ feedButton.addEventListener('click', () => {
   updateAttributeDisplay();
 });
 
+function handleFeedButtonClick() { // Function to increment the clicks on the feed button
+  feedCounter++; // Increments the feed counter
+}
+
 
 sleepButton.addEventListener('click', () => {
   pet.sleep = Math.min(pet.sleep + 10, 100);// Adds an event listener to the sleep button that increases the sleep attribute by 10 when clicked
@@ -65,6 +73,10 @@ sleepButton.addEventListener('click', () => {
   updateAttributeDisplay();
 });
 
+function handleSleepButtonClick() { // Function to increment the clicks on the sleep button
+  sleepCounter++; // Increments the sleep counter
+}
+
 
 cleanButton.addEventListener('click', () => {
   pet.cleanliness = Math.min(pet.cleanliness + 10, 100);// Adds an event listener to the clean button that increases the cleanliness attribute by 10 when clicked
@@ -73,6 +85,10 @@ cleanButton.addEventListener('click', () => {
 
   updateAttributeDisplay();
 });
+
+function handleCleanButtonClick() { // Function to increment the clicks on the clean button
+  cleanCounter++; // Increments the clean counter
+}
 
 
 function checkPetStatus() { // Function to check if any of the attributes are less than or equal to 0; if true the program will stop the attribute interval and display the survival time of the pet
@@ -106,6 +122,9 @@ function displaySurvivalTime() { // Function that calculates the survival time o
     survivalTimeDisplay.innerText = 'Survival Time: ' + formattedTime; // Displays the survival time to the user as "Survival Time:  mm:ss"
     storeSurvivalTime(formattedTime); // Store the survival time locally
     console.log('Survival Time:', formattedTime); // Logs the survival time to the console
+    console.log(`Feed button clicked ${feedCounter} times`); // Logs the number of clicks on the feed button to the console
+    console.log(`Sleep button clicked ${sleepCounter} times`); // Logs the number of clicks on the sleep button to the console
+    console.log(`Clean button clicked ${cleanCounter} times`); // Logs the number of clicks on the clean button to the console
   } else {
     survivalTimeDisplay.innerText = 'Survival Time: N/A'; // If the survival time display is not found this will display "Survival Time: N/A"
     console.log('Survival time not known'); // Logs to the console that the survival time is not known
@@ -121,5 +140,10 @@ const attributeInterval = setInterval(() => { // Creates an interval that calls 
   decreaseAttributes(); // Calls the decreaseAttributes function to decrease the attributes every second
   checkPetStatus(); // Calls the checkPetStatus function to check if any of the attributes are less than or equal to 0
 }, 1000);
+
+document.getElementById('feed-button').addEventListener('click', handleFeedButtonClick); // Adds an event listener to the feed button that calls the handleFeedButtonClick function when clicked
+document.getElementById('sleep-button').addEventListener('click', handleSleepButtonClick); // Adds an event listener to the sleep button that calls the handleSleepButtonClick function when clicked
+document.getElementById('clean-button').addEventListener('click', handleCleanButtonClick); // Adds an event listener to the clean button that calls the handleCleanButtonClick function when clicked
+
 
 module.exports = pet; // Exports the pet object to be used in setup.js
