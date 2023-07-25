@@ -1,0 +1,57 @@
+<!DOCTYPE html> <!-- Defines the document type as HTML-->
+<html>
+<head>
+  <title>UP2089194 M30221 22/23 Virtual Pet Referral</title> <!-- Title of the page-->
+  <link rel="stylesheet" href="styles.css"> <!-- Links the CSS file to the HTML file-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets the viewport to the width of the device and initial zoom level to 1.0-->
+</head>
+<body>
+  <h1 id="pet-title">My Pet</h1> <!-- Header tag that displays the text "My Pet"-->
+  
+  <img id="pet-image" src="pet-image.jpg" alt="Pet" width="300" height="300"> <!-- Image source: https://www.reddit.com/r/Inktober/comments/ya3dr3/this_is_a_bad_drawing_of_a_dog_you_could_also/ -->
+
+  <div>
+    <h2>Attributes</h2> <!--Header tag that displays the text "Attributes"-->
+    <p>Food: <span id="food-value"></span></p> <!-- Displays the text "Food: " followed by the "food-value" variable that is dynamically updated with the food attribute percentage.-->
+    <p>Sleep: <span id="sleep-value"></span></p> <!-- Displays the text "Sleep: " followed by the "sleep-value" variable that is dynamically updated with the sleep attribute percentage.-->
+    <p>Cleanliness: <span id="cleanliness-value"></span></p> <!-- Displays the text "Cleanliness: " followed by the "cleanliness-value" variable that is dynamically updated with the cleanliness attribute percentage.-->
+    <p>Happiness: <span id="happiness-value"></span></p> <!-- Displays the text "Happiness: " followed by the "happiness-value" variable that is dynamically updated with the happiness attribute percentage.-->  
+  </div>
+  
+  <div id="survival-time">Survival Time: <span id="survival-time-value"></span></div> <!-- Displays the text "Survival Time: " followed by the "survival-time-value" variable that is dynamically updated with the survival time in minutes and seconds.-->
+  
+  <button id="feed-button">Feed</button> <!--  Button that reads the "feed-button" variable when clicked-->
+  <button id="sleep-button">Sleep</button> <!--  Button that reads the "sleep-button" variable when clicked-->
+  <button id="clean-button">Clean</button> <!--  Button that reads the "clean-button" variable when clicked-->
+  <button onclick="location.reload()">Reload</button> <!--  Button that reloads the page when clicked-->
+  <button onclick="changePet()">Change Pet</button> <!--  Button that calls the "changePet()" function when clicked-->
+  <button type="button" onClick="showInstructions()">How to Play</button> <!--  Button that calls the "showInstructions()" function when clicked-->
+
+  <input type="text" id="pet-name" placeholder="Enter pet name" oninput="updatePetTitle()"> <!--  Input box that allows user to name the pet-->
+
+  <script src="script.js"></script>
+  <script>
+    function updatePetTitle() {
+      var petName = document.getElementById("pet-name").value;
+      var petTitle = document.getElementById("pet-title");
+      petTitle.textContent = "My Pet " + petName;
+    }
+  </script> <!-- Changes the text in the <h1> to "My Pet " followed by the name entered in the input box-->
+
+  <script>
+    function changePet() {
+      var image = document.getElementById("pet-image");
+      if (image.src.endsWith("pet-image.jpg")) {
+        image.src = "pet-image-2.jpg"; // Image source: https://www.reddit.com/r/TheSimpsons/comments/10tg3wz/my_santas_little_helper_drawing/
+      } else {
+        image.src = "pet-image.jpg";
+      }
+    }
+  </script> <!-- Changes the image displayed when the "Change Pet" button is clicked-->
+  <script>
+    function showInstructions() {
+      alert("This is your virtual pet.\n \nPress the buttons to feed, play and put your pet to sleep.\n \nIf you overdo it, or can't keep it happy, your pet will die.");
+    }
+  </script> <!-- Displays an alert box with instructions when the "How to Play" button is clicked-->
+</body>
+</html>
