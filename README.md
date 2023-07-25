@@ -1,6 +1,6 @@
 # Virtual Pet
 
-This is a virtual pet application that allows users to interact with a virtual pet and keep it alive.
+This is an application that allows users to interact with a virtual pet and keep it alive.
 
 ## Description
 
@@ -8,7 +8,7 @@ This is a virtual pet that provides a user interface where users can interact wi
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository
 
 2. Open the `index.html` file in a web browser.
 
