@@ -38,8 +38,14 @@ When clicking the buttons for "Feed," "Play," or "Clean," the corresponding attr
 
 ## Unfinished and Future Work
 
-- Adding additional actions: Currently, the application only supports naming, feeding, cleaning playing with and changing the pet. Future work could involve adding more actions such as additional games, feeding them preferred foods or taking the pet for a walk.
+- Adding additional actions; currently, the application only supports naming, feeding, cleaning, playing with and changing the pet. Future work could involve adding more actions such as additional games, feeding them preferred foods or taking the pet for a walk.
 
-- Enhancing the pet's behavior: The pet's behavior can be further improved by implementing more realistic responses to user actions and introducing a sense of progression or growth for the pet, i.e. aging, evolution.
+- Enhancing the pet's behavior; improving the pet's behavior by implementing more realistic responses to user actions and introducing a sense of progression or growth for the pet, i.e. aging, pokémon-like evolution.
   
-- Multiplayer functionality; the ability for users to interact with other pets
+- Multiplayer functionality; the ability for users or the pet itself to interact with other pets on the server
+
+- Add a layer of competion by saving the survival time order to create a highscore board that ranks the longest surviving pets on the server
+
+- The implementation of a database that stores the pet name and its survival time dynamically
+
+- A rewards system of sorts, for example awarding the user for keeping the pet alive for a certain amount of time
